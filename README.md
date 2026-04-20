@@ -64,3 +64,132 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+//BASE DE DATOS
+
+CREATE DATABASE IF NOT EXISTS papeleria;
+
+CREATE TABLE categorias (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255),
+    codigo_categoria VARCHAR(50) UNIQUE,
+    estado VARCHAR(20) NOT NULL,
+    fecha_creacion DATETIME NOT NULL,
+    fecha_actualizacion DATETIME,
+    usuario_creador VARCHAR(100),
+    tipo_categoria VARCHAR(50),
+    observaciones VARCHAR(255)
+);
+
+CREATE TABLE proveedores (
+    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_empresa VARCHAR(150) NOT NULL,
+    nombre_contacto VARCHAR(100) NOT NULL,
+    telefono VARCHAR(20),
+    correo VARCHAR(100),
+    direccion VARCHAR(200),
+    ciudad VARCHAR(100),
+    rfc VARCHAR(20),
+    estado VARCHAR(20) NOT NULL,
+    fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE clientes (
+    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    apellido_paterno VARCHAR(100) NOT NULL,
+    apellido_materno VARCHAR(100),
+    telefono VARCHAR(20),
+    correo VARCHAR(100),
+    direccion VARCHAR(200),
+    tipo_cliente VARCHAR(50),
+    estado VARCHAR(20) NOT NULL,
+    fecha_registro DATETIME NOT NULL
+);
+
+CREATE TABLE productos (
+    id_producto INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    descripcion VARCHAR(255),
+    precio DECIMAL(10,2) NOT NULL,
+    stock INT NOT NULL,
+    marca VARCHAR(100),
+    codigo_barras VARCHAR(50) UNIQUE,
+    id_categoria INT NOT NULL,
+    id_proveedor INT NOT NULL,
+    fecha_registro DATETIME NOT NULL,
+    CONSTRAINT fk_producto_categoria FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria),
+    CONSTRAINT fk_producto_proveedor FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_proveedor)
+);
+
+CREATE TABLE ventas (
+    id_venta INT AUTO_INCREMENT PRIMARY KEY,
+    folio VARCHAR(50) UNIQUE NOT NULL,
+    id_cliente INT NOT NULL,
+    fecha_venta DATETIME NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    iva DECIMAL(10,2) NOT NULL,
+    total DECIMAL(10,2) NOT NULL,
+    metodo_pago VARCHAR(50) NOT NULL,
+    estado_venta VARCHAR(30) NOT NULL,
+    observaciones VARCHAR(255),
+    CONSTRAINT fk_venta_cliente FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+);
+
+
+INSERT INTO categorias 
+(nombre, descripcion, codigo_categoria, estado, fecha_creacion, fecha_actualizacion, usuario_creador, tipo_categoria, observaciones)
+VALUES
+('Cuadernos', 'para tareas y apuntes', 'CAT01', 'activo', NOW(), NOW(), 'ana', 'escolar', 'los mas vendidos'),
+('Plumas', 'plumas normales', 'CAT02', 'activo', NOW(), NOW(), 'maria', 'oficina', 'varios colores'),
+('Colores', 'colores para dibujar', 'CAT03', 'activo', NOW(), NOW(), 'sofia', 'escolar', 'para primaria'),
+('Hojas', 'hojas blancas', 'CAT04', 'activo', NOW(), NOW(), 'diana', 'oficina', 'paquetes'),
+('Carpetas', 'para guardar hojas', 'CAT05', 'activo', NOW(), NOW(), 'laura', 'escolar', 'plastico');
+
+INSERT INTO proveedores
+(nombre_empresa, nombre_contacto, telefono, correo, direccion, ciudad, rfc, estado, fecha_registro)
+VALUES
+('Papeleria Lopez', 'Carlos Lopez', '8711234567', 'lopez@gmail.com', 'centro 123', 'Torreon', 'RFC001', 'activo', NOW()),
+('Suministros MX', 'Luis Garcia', '8717654321', 'suministros@gmail.com', 'roma 456', 'Torreon', 'RFC002', 'activo', NOW()),
+('Distribuidora Norte', 'Ana Ruiz', '8712223344', 'norte@gmail.com', 'juarez 789', 'Torreon', 'RFC003', 'activo', NOW()),
+('Papeles Express', 'Marta Diaz', '8719998888', 'express@gmail.com', 'morelos 321', 'Torreon', 'RFC004', 'activo', NOW()),
+('Todo Escolar', 'Pedro Soto', '8715556666', 'escolar@gmail.com', 'independencia 654', 'Torreon', 'RFC005', 'activo', NOW());
+
+INSERT INTO clientes
+(nombre, apellido_paterno, apellido_materno, telefono, correo, direccion, tipo_cliente, estado, fecha_registro)
+VALUES
+('Ana', 'Lopez', 'Perez', '8711111111', 'ana@gmail.com', 'col centro', 'frecuente', 'activo', NOW()),
+('Maria', 'Gomez', 'Diaz', '8712222222', 'maria@gmail.com', 'col roma', 'normal', 'activo', NOW()),
+('Sofia', 'Ramirez', 'Torres', '8713333333', 'sofia@gmail.com', 'col villas', 'frecuente', 'activo', NOW()),
+('Diana', 'Martinez', 'Lopez', '8714444444', 'diana@gmail.com', 'col sol', 'normal', 'activo', NOW()),
+('Laura', 'Hernandez', 'Cruz', '8715555555', 'laura@gmail.com', 'col norte', 'frecuente', 'activo', NOW());
+
+
+INSERT INTO productos
+(nombre, descripcion, precio, stock, marca, codigo_barras, id_categoria, id_proveedor, fecha_registro)
+VALUES
+('Cuaderno profesional', '100 hojas', 45.50, 30, 'Scribe', 'COD001', 1, 1, NOW()),
+('Pluma azul', 'tinta azul', 12.00, 80, 'Bic', 'COD002', 2, 2, NOW()),
+('Caja de colores', '12 piezas', 65.00, 25, 'Crayola', 'COD003', 3, 3, NOW()),
+('Paquete hojas', '500 hojas', 120.00, 15, 'Office', 'COD004', 4, 4, NOW()),
+('Carpeta plastica', 'color azul', 20.00, 50, 'Gen', 'COD005', 5, 5, NOW());
+
+INSERT INTO ventas
+(folio, id_cliente, fecha_venta, subtotal, iva, total, metodo_pago, estado_venta, observaciones)
+VALUES
+('V001', 1, NOW(), 45.50, 7.28, 52.78, 'efectivo', 'completada', 'venta normal'),
+('V002', 2, NOW(), 12.00, 1.92, 13.92, 'efectivo', 'completada', 'compra rapida'),
+('V003', 3, NOW(), 65.00, 10.40, 75.40, 'tarjeta', 'completada', 'sin problema'),
+('V004', 4, NOW(), 120.00, 19.20, 139.20, 'efectivo', 'completada', 'cliente nuevo'),
+('V005', 5, NOW(), 20.00, 3.20, 23.20, 'tarjeta', 'completada', 'ok');
+
+
+ALTER TABLE productos 
+ADD estado VARCHAR(20) NOT NULL DEFAULT 'activo';
+
+SELECT * FROM productos;
+SHOW TABLES;
+
+DESCRIBE productos;

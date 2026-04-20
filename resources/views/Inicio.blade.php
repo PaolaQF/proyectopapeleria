@@ -6,7 +6,7 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Papaleria</h1>
+    <h1>Papeleria</h1>
 
     <button onclick="window.location='{{ route('productos.index') }}'">
     Productos

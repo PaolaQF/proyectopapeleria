@@ -7,6 +7,7 @@
 </head>
 <body>
     <h1>Pagina de Productos</h1>
+      <a href="{{route('productos.create') }}">Nuevo</a>
      
     <table>
         <tr>
@@ -21,6 +22,7 @@
             <th>Id De Proverdor</th>
             <th>Fecha De Regristo</th>
             <th>Estado</th>
+            <th> Actividad </th>
 
         </tr>
         @foreach($productos as $producto)
@@ -37,6 +39,17 @@
             <td>{{$producto->fecha_registro }}</td>
             <td>{{$producto->estado }}</td>
             
+            <td> <a href="{{route('productos.show', $producto->id_producto)}}">Mostrar</a>
+             <td> <a href="{{route('productos.edit', $producto->id_producto)}}">Editar</a>
+
+
+              <form  method="POST" action="{{ route('productos.delete', $producto->id_producto)  }}" >
+                @csrf
+                @method('DELETE')
+                <Button type="submit"> Borrar </Button>
+
+                </form>
+                
                 
             </td>
         </tr>

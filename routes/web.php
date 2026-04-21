@@ -25,3 +25,11 @@ Route::get ('/productos/{id}',[ProductoController::class, 'show'])->name('produc
 Route::get ('/productos/edit/{id}',[ProductoController::class, 'edit'])->name('productos.edit');
 Route::post('/productos/store',[ProductoController::class, 'store'])->name('productos.store');
 Route::Delete('/productos/delete/{id}',[ProductoController::class, 'destroy'])->name('productos.delete');
+
+Route::get('/clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
+Route::put('/clientes/update/{id}', [ClienteController::class, 'update'])->name('clientes.update');
+Route::get('/listaclientes', [ClienteController::class, 'index'])->name('clientes.index');
+Route::get('/clientes/{id}', [ClienteController::class, 'show'])->name('clientes.show');
+Route::get('/clientes/edit/{id}', [ClienteController::class, 'edit'])->name('clientes.edit');
+Route::post('/clientes/store', [ClienteController::class, 'store'])->name('clientes.store');
+Route::delete('/clientes/delete/{id}', [ClienteController::class, 'destroy'])->name('clientes.delete');

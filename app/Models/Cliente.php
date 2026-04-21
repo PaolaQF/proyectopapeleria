@@ -24,5 +24,6 @@ class Cliente extends Model
         'fecha_registro'
     ];
 
+   // Si la tabla NO tiene created y updated, se desactiva eso
     public $timestamps = false;
 }

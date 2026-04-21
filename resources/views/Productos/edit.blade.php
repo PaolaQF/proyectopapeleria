@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
@@ -42,8 +42,6 @@
                 <input type="text" id="codigo_barras"  value="{{$producto->codigo_barras}}"name="codigo_barras" >
             </div>
 
-
-
              <div>
                 <label for="id_categoria">Id de Categoria:</label>
                 <input type="text" id="id_categoria"  value="{{$producto->id_categoria}}"name="id_categoria" >
@@ -54,9 +52,6 @@
                 <input type="text" id="id_proveedor"  value="{{$producto->id_proveedor}}"name="id_proveedor" >
             </div>
 
-
-           
-
             <div>
                 <label for="fecha_registro">Fecha De Registro:</label>
                 <input type="text" id="fecha_registro"  value="{{$producto->fecha_registro}}"name="fecha_registro" >
@@ -66,11 +61,6 @@
                 <label for="estado">Estado</label>
                 <input type="text" id="estado"  value="{{$producto->estado}}"name="estado" >
             </div>
-
-
-
-
-
 
             <div>
                 <button type="submit">GUARDAR</button>

@@ -10,20 +10,23 @@ class Cliente extends Model
     use HasFactory;
 
     protected $table = 'clientes';
-    protected $primaryKey = 'id_cliente';
+
+    // Tu tabla usa "id"
+    protected $primaryKey = 'id';
+
+    public $timestamps = false;
 
     protected $fillable = [
         'nombre',
         'apellido_paterno',
         'apellido_materno',
         'telefono',
-        'correo',
-        'direccion',
-        'tipo_cliente',
-        'estado',
-        'fecha_registro'
+        'email',
+        'calle',
+        'numero',
+        'colonia',
+        'ciudad',
+        'fecha_registro',
+        'puntos'
     ];
-
-   // Si la tabla NO tiene created y updated, se desactiva eso
-    public $timestamps = false;
 }

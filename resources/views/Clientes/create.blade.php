@@ -33,28 +33,38 @@
         </div>
 
         <div>
-            <label>Correo:</label>
-            <input type="email" name="correo">
+            <label>Email:</label>
+            <input type="email" name="email">
         </div>
 
         <div>
-            <label>Dirección:</label>
-            <input type="text" name="direccion">
+            <label>Calle:</label>
+            <input type="text" name="calle">
         </div>
 
         <div>
-            <label>Tipo de Cliente:</label>
-            <input type="text" name="tipo_cliente">
+            <label>Número:</label>
+            <input type="text" name="numero">
         </div>
 
         <div>
-            <label>Estado:</label>
-            <input type="text" name="estado">
+            <label>Colonia:</label>
+            <input type="text" name="colonia">
+        </div>
+
+        <div>
+            <label>Ciudad:</label>
+            <input type="text" name="ciudad">
         </div>
 
         <div>
             <label>Fecha de Registro:</label>
             <input type="date" name="fecha_registro">
+        </div>
+
+        <div>
+            <label>Puntos:</label>
+            <input type="number" name="puntos">
         </div>
 
         <br>

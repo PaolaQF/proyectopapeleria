@@ -9,7 +9,7 @@
 
     <h1>EDITAR CLIENTE</h1>
 
-    <form method="POST" action="{{ route('clientes.update', $cliente->id_cliente) }}">
+    <form method="POST" action="{{ route('clientes.update', $cliente->id) }}">
         @csrf
         @method('PUT')
 
@@ -34,28 +34,38 @@
         </div>
 
         <div>
-            <label>Correo:</label>
-            <input type="email" name="correo" value="{{ $cliente->correo }}">
+            <label>Email:</label>
+            <input type="email" name="email" value="{{ $cliente->email }}">
         </div>
 
         <div>
-            <label>Dirección:</label>
-            <input type="text" name="direccion" value="{{ $cliente->direccion }}">
+            <label>Calle:</label>
+            <input type="text" name="calle" value="{{ $cliente->calle }}">
         </div>
 
         <div>
-            <label>Tipo de Cliente:</label>
-            <input type="text" name="tipo_cliente" value="{{ $cliente->tipo_cliente }}">
+            <label>Número:</label>
+            <input type="text" name="numero" value="{{ $cliente->numero }}">
         </div>
 
         <div>
-            <label>Estado:</label>
-            <input type="text" name="estado" value="{{ $cliente->estado }}">
+            <label>Colonia:</label>
+            <input type="text" name="colonia" value="{{ $cliente->colonia }}">
+        </div>
+
+        <div>
+            <label>Ciudad:</label>
+            <input type="text" name="ciudad" value="{{ $cliente->ciudad }}">
         </div>
 
         <div>
             <label>Fecha de Registro:</label>
             <input type="date" name="fecha_registro" value="{{ $cliente->fecha_registro }}">
+        </div>
+
+        <div>
+            <label>Puntos:</label>
+            <input type="number" name="puntos" value="{{ $cliente->puntos }}">
         </div>
 
         <br>

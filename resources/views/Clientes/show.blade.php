@@ -9,7 +9,7 @@
 
     <h1>DATOS DEL CLIENTE</h1>
 
-    <p>ID_CLIENTE: {{ $cliente->id_cliente }}</p>
+    <p>ID: {{ $cliente->id }}</p>
 
     <p>NOMBRE: {{ $cliente->nombre }}</p>
 
@@ -19,17 +19,19 @@
 
     <p>TELEFONO: {{ $cliente->telefono }}</p>
 
-    <p>CORREO: {{ $cliente->correo }}</p>
+    <p>EMAIL: {{ $cliente->email }}</p>
 
-    <p>DIRECCION: {{ $cliente->direccion }}</p>
+    <p>CALLE: {{ $cliente->calle }}</p>
 
-    <p>TIPO DE CLIENTE: {{ $cliente->tipo_cliente }}</p>
+    <p>NÚMERO: {{ $cliente->numero }}</p>
 
-    <p>ESTADO: {{ $cliente->estado }}</p>
+    <p>COLONIA: {{ $cliente->colonia }}</p>
+
+    <p>CIUDAD: {{ $cliente->ciudad }}</p>
 
     <p>FECHA DE REGISTRO: {{ $cliente->fecha_registro }}</p>
 
-    <br>
+    <p>PUNTOS: {{ $cliente->puntos }}</p>
 
     <a href="{{ route('clientes.index') }}">Volver</a>
 

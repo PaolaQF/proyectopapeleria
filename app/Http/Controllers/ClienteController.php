@@ -7,7 +7,7 @@ use App\Models\Cliente;
 
 class ClienteController extends Controller
 {
-    //  Mostrar todos los clientes
+    // Mostrar todos los clientes
     function index(){
         $clientes = Cliente::all();
         return view("clientes.index", ['clientes' => $clientes]);
@@ -19,12 +19,12 @@ class ClienteController extends Controller
         return view('clientes.show', ['cliente' => $cliente]);
     }
 
-    //  Formulario crear
+    // Formulario crear
     function create(){
         return view('clientes.create');
     }
 
-    // Guardar cliente nuevo
+    // Guardar cliente
     function store(Request $request){
 
         $cliente = new Cliente();
@@ -33,11 +33,13 @@ class ClienteController extends Controller
         $cliente->apellido_paterno = $request->apellido_paterno;
         $cliente->apellido_materno = $request->apellido_materno;
         $cliente->telefono = $request->telefono;
-        $cliente->correo = $request->correo;
-        $cliente->direccion = $request->direccion;
-        $cliente->tipo_cliente = $request->tipo_cliente;
-        $cliente->estado = $request->estado;
+        $cliente->email = $request->email;
+        $cliente->calle = $request->calle;
+        $cliente->numero = $request->numero;
+        $cliente->colonia = $request->colonia;
+        $cliente->ciudad = $request->ciudad;
         $cliente->fecha_registro = $request->fecha_registro;
+        $cliente->puntos = $request->puntos;
 
         $cliente->save();
 
@@ -59,11 +61,13 @@ class ClienteController extends Controller
         $cliente->apellido_paterno = $request->apellido_paterno;
         $cliente->apellido_materno = $request->apellido_materno;
         $cliente->telefono = $request->telefono;
-        $cliente->correo = $request->correo;
-        $cliente->direccion = $request->direccion;
-        $cliente->tipo_cliente = $request->tipo_cliente;
-        $cliente->estado = $request->estado;
+        $cliente->email = $request->email;
+        $cliente->calle = $request->calle;
+        $cliente->numero = $request->numero;
+        $cliente->colonia = $request->colonia;
+        $cliente->ciudad = $request->ciudad;
         $cliente->fecha_registro = $request->fecha_registro;
+        $cliente->puntos = $request->puntos;
 
         $cliente->save();
 

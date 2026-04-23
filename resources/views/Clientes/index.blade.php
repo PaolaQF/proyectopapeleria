@@ -50,11 +50,13 @@
 
                 <a href="{{ route('clientes.edit', $cliente->id) }}">Editar</a>
 
-                <form method="POST" action="{{ route('clientes.destroy', $cliente->id) }}" style="display:inline;">
+                <form method="POST" action="{{ route('clientes.delete', $cliente->id) }}" style="display:inline;">
                     @csrf
                     @method('DELETE')
                     <button type="submit">Borrar</button>
                 </form>
+
+               
 
             </td>
         </tr>

@@ -56,7 +56,6 @@
 
                 </form>
                 
-                
             </td>
         </tr>
         @endforeach

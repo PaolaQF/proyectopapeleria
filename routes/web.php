@@ -37,3 +37,12 @@ Route::get ('/sucursales/{id}',[SucursalController::class, 'show'])->name('sucur
 Route::get ('/sucursales/edit/{id}',[SucursalController::class, 'edit'])->name('sucursales.edit');
 Route::post('/sucursales/store',[SucursalController::class, 'store'])->name('sucursales.store');
 Route::Delete('/sucursales/delete/{id}',[SucursalController::class, 'destroy'])->name('sucursales.delete');
+
+//RUTAS DE TABLA SUCURSALES - PAOLA
+Route::get('/clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
+Route::put('/clientes/update/{id}', [ClienteController::class, 'update'])->name('clientes.update');
+Route::get('/listaclientes', [ClienteController::class, 'index'])->name('clientes.index');
+Route::get('/clientes/{id}', [ClienteController::class, 'show'])->name('clientes.show');
+Route::get('/clientes/edit/{id}', [ClienteController::class, 'edit'])->name('clientes.edit');
+Route::post('/clientes/store', [ClienteController::class, 'store'])->name('clientes.store');
+Route::delete('/clientes/delete/{id}', [ClienteController::class, 'destroy'])->name('clientes.delete');

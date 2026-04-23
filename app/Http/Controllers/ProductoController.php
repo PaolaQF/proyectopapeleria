@@ -7,14 +7,12 @@ use App\Models\Producto;
 
 class ProductoController extends Controller
 {
-    
     //All: es un contenedor de todos los datos 
     function index(){
     $productos = Producto:: all();
     return view( "productos.index", [ 'productos' => $productos]);
 
     }
-
     function show ($id){
     $producto = Producto::find($id);
     return view('productos.show',[ 'producto' => $producto]);

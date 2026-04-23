@@ -31,24 +31,27 @@ class ProductoController extends Controller
     }
 
 
-    function update (Request $request,$id ){;
+    function update(Request $request, $id){
     $producto = Producto::find($id);
-  
-    $producto -> nombre = $request->nombre;
-    $producto -> descripcion = $request->descripcion;
-    $producto -> precio = $request->precio;
-    $producto -> stock = $request->stock;
-    $producto -> marca = $request->marca;
-    $producto -> codigo_barras = $request->codigo_barras;
-    $producto -> id_categoria = $request->id_categoria;
-    $producto -> id_proveedor = $request->id_proveedor;
-    $producto -> fecha_registro = $request->fecha_registro;
-    $producto -> estado = $request->estado;
 
-    $producto -> save();
+    $producto->proveedor_id = $request->proveedor_id;
+    $producto->categoria = $request->categoria;
+    $producto->codigo_barras = $request->codigo_barras;
+    $producto->nombre = $request->nombre;
+    $producto->descripcion = $request->descripcion;
+    $producto->marca = $request->marca;
+    $producto->unidad_medida = $request->unidad_medida;
+    $producto->costo = $request->costo;
+    $producto->precio = $request->precio;
+    $producto->stock = $request->stock;
+    $producto->stock_minimo = $request->stock_minimo;
+    $producto->fecha_caducidad = $request->fecha_caducidad;
+    $producto->activo = $request->activo;
 
-     return redirect()->route('productos.index');
-    }
+    $producto->save();
+
+    return redirect()->route('productos.index');
+}
 
 
 
@@ -57,16 +60,20 @@ class ProductoController extends Controller
      function store (Request $request){
 
     $producto = new Producto();
-    $producto -> nombre = $request->nombre;
-    $producto -> descripcion = $request->descripcion;
-    $producto -> precio = $request->precio;
-    $producto -> stock = $request->stock;
-    $producto -> marca = $request->marca;
-    $producto -> codigo_barras = $request->codigo_barras;
-     $producto -> id_categoria = $request->id_categoria;
-    $producto -> id_proveedor = $request->id_proveedor;
-    $producto -> fecha_registro = $request->fecha_registro;
-    $producto -> estado = $request->estado;
+     $producto->proveedor_id = $request->proveedor_id;
+    $producto->categoria = $request->categoria;
+    $producto->codigo_barras = $request->codigo_barras;
+    $producto->nombre = $request->nombre;
+    $producto->descripcion = $request->descripcion;
+    $producto->marca = $request->marca;
+    $producto->unidad_medida = $request->unidad_medida;
+    $producto->costo = $request->costo;
+    $producto->precio = $request->precio;
+    $producto->stock = $request->stock;
+    $producto->stock_minimo = $request->stock_minimo;
+    $producto->fecha_caducidad = $request->fecha_caducidad;
+    $producto->activo = $request->activo;
+
     $producto -> save();
 
      return redirect()->route('productos.index');

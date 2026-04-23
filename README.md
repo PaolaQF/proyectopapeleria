@@ -68,74 +68,124 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 
 //BASE DE DATOS
 
-CREATE DATABASE IF NOT EXISTS papeleria;
+DROP DATABASE IF EXISTS papeleria;
+CREATE DATABASE papeleria CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE papeleria;
 
-CREATE TABLE categorias (
-    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+-- ======================
+-- TABLAS
+-- ======================
+
+CREATE TABLE sucursales (
+    id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100) NOT NULL,
-    descripcion VARCHAR(255),
-    codigo_categoria VARCHAR(50) UNIQUE,
-    estado VARCHAR(20) NOT NULL,
-    fecha_creacion DATETIME NOT NULL,
-    fecha_actualizacion DATETIME,
-    usuario_creador VARCHAR(100),
-    tipo_categoria VARCHAR(50),
-    observaciones VARCHAR(255)
-);
-
-CREATE TABLE proveedores (
-    id_proveedor INT AUTO_INCREMENT PRIMARY KEY,
-    nombre_empresa VARCHAR(150) NOT NULL,
-    nombre_contacto VARCHAR(100) NOT NULL,
-    telefono VARCHAR(20),
-    correo VARCHAR(100),
-    direccion VARCHAR(200),
-    ciudad VARCHAR(100),
-    rfc VARCHAR(20),
-    estado VARCHAR(20) NOT NULL,
-    fecha_registro DATETIME NOT NULL
+    telefono VARCHAR(20) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    calle VARCHAR(120) NOT NULL,
+    numero VARCHAR(20) NOT NULL,
+    colonia VARCHAR(80) NOT NULL,
+    ciudad VARCHAR(80) NOT NULL,
+    estado VARCHAR(80) NOT NULL,
+    codigo_postal VARCHAR(10) NOT NULL,
+    fecha_apertura DATE NOT NULL,
+    activa TINYINT(1) NOT NULL
 );
 
 CREATE TABLE clientes (
-    id_cliente INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    apellido_paterno VARCHAR(100) NOT NULL,
-    apellido_materno VARCHAR(100),
-    telefono VARCHAR(20),
-    correo VARCHAR(100),
-    direccion VARCHAR(200),
-    tipo_cliente VARCHAR(50),
-    estado VARCHAR(20) NOT NULL,
-    fecha_registro DATETIME NOT NULL
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(80) NOT NULL,
+    apellido_paterno VARCHAR(80) NOT NULL,
+    apellido_materno VARCHAR(80) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    calle VARCHAR(120) NOT NULL,
+    numero VARCHAR(20) NOT NULL,
+    colonia VARCHAR(80) NOT NULL,
+    ciudad VARCHAR(80) NOT NULL,
+    fecha_registro DATE NOT NULL,
+    puntos INT NOT NULL
+);
+
+CREATE TABLE proveedores (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_comercial VARCHAR(120) NOT NULL,
+    contacto_nombre VARCHAR(120) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    calle VARCHAR(120) NOT NULL,
+    numero VARCHAR(20) NOT NULL,
+    colonia VARCHAR(80) NOT NULL,
+    ciudad VARCHAR(80) NOT NULL,
+    rfc VARCHAR(20) NOT NULL,
+    dias_credito INT NOT NULL,
+    estatus VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE empleados (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sucursal_id INT NOT NULL,
+    nombre VARCHAR(80) NOT NULL,
+    apellido_paterno VARCHAR(80) NOT NULL,
+    apellido_materno VARCHAR(80) NOT NULL,
+    puesto VARCHAR(80) NOT NULL,
+    telefono VARCHAR(20) NOT NULL,
+    email VARCHAR(120) NOT NULL,
+    fecha_ingreso DATE NOT NULL,
+    salario DECIMAL(10,2) NOT NULL,
+    turno VARCHAR(30) NOT NULL,
+    estatus VARCHAR(20) NOT NULL,
+    FOREIGN KEY (sucursal_id) REFERENCES sucursales(id)
 );
 
 CREATE TABLE productos (
-    id_producto INT AUTO_INCREMENT PRIMARY KEY,
-    nombre VARCHAR(100) NOT NULL,
-    descripcion VARCHAR(255),
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    proveedor_id INT NOT NULL,
+    categoria VARCHAR(80) NOT NULL,
+    codigo_barras VARCHAR(30) NOT NULL,
+    nombre VARCHAR(150) NOT NULL,
+    descripcion VARCHAR(255) NOT NULL,
+    marca VARCHAR(80) NOT NULL,
+    unidad_medida VARCHAR(30) NOT NULL,
+    costo DECIMAL(10,2) NOT NULL,
     precio DECIMAL(10,2) NOT NULL,
     stock INT NOT NULL,
-    marca VARCHAR(100),
-    codigo_barras VARCHAR(50) UNIQUE,
-    id_categoria INT NOT NULL,
-    id_proveedor INT NOT NULL,
-    fecha_registro DATETIME NOT NULL,
-    CONSTRAINT fk_producto_categoria FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria),
-    CONSTRAINT fk_producto_proveedor FOREIGN KEY (id_proveedor) REFERENCES proveedores(id_proveedor)
+    stock_minimo INT NOT NULL,
+    fecha_caducidad DATE NULL,
+    activo TINYINT(1) NOT NULL,
+    FOREIGN KEY (proveedor_id) REFERENCES proveedores(id)
 );
 
 CREATE TABLE ventas (
-    id_venta INT AUTO_INCREMENT PRIMARY KEY,
-    folio VARCHAR(50) UNIQUE NOT NULL,
-    id_cliente INT NOT NULL,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sucursal_id INT NOT NULL,
+    empleado_id INT NOT NULL,
+    cliente_id INT NOT NULL,
+    folio VARCHAR(30) NOT NULL,
     fecha_venta DATETIME NOT NULL,
+    metodo_pago VARCHAR(40) NOT NULL,
     subtotal DECIMAL(10,2) NOT NULL,
-    iva DECIMAL(10,2) NOT NULL,
+    descuento DECIMAL(10,2) NOT NULL,
+    impuesto DECIMAL(10,2) NOT NULL,
     total DECIMAL(10,2) NOT NULL,
-    metodo_pago VARCHAR(50) NOT NULL,
-    estado_venta VARCHAR(30) NOT NULL,
-    observaciones VARCHAR(255),
-    CONSTRAINT fk_venta_cliente FOREIGN KEY (id_cliente) REFERENCES clientes(id_cliente)
+    estatus VARCHAR(20) NOT NULL,
+    FOREIGN KEY (sucursal_id) REFERENCES sucursales(id),
+    FOREIGN KEY (empleado_id) REFERENCES empleados(id),
+    FOREIGN KEY (cliente_id) REFERENCES clientes(id)
+);
+
+CREATE TABLE detalle_venta (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    venta_id INT NOT NULL,
+    producto_id INT NOT NULL,
+    cantidad INT NOT NULL,
+    precio_unitario DECIMAL(10,2) NOT NULL,
+    descuento DECIMAL(10,2) NOT NULL,
+    impuesto DECIMAL(10,2) NOT NULL,
+    subtotal DECIMAL(10,2) NOT NULL,
+    observaciones VARCHAR(150) NOT NULL,
+    entregado TINYINT(1) NOT NULL,
+    FOREIGN KEY (venta_id) REFERENCES ventas(id),
+    FOREIGN KEY (producto_id) REFERENCES productos(id)
 );
 
 

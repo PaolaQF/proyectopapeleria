@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
+use App\Http\Controllers\SucursalController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,6 +20,7 @@ Route::get('/', function () {
     return view('inicio');
 });
 
+//RUTAS DE TABLA PRODUCTOS - DANNA 
 Route::get ('/productos/create',[ProductoController::class, 'create'])->name('productos.create');
 Route::put('/productos/update/{id}',[ProductoController::class, 'update'])->name('productos.update');
 Route::get ('/listaproductos',[ProductoController::class, 'index'])->name('productos.index');
@@ -26,6 +29,17 @@ Route::get ('/productos/edit/{id}',[ProductoController::class, 'edit'])->name('p
 Route::post('/productos/store',[ProductoController::class, 'store'])->name('productos.store');
 Route::Delete('/productos/delete/{id}',[ProductoController::class, 'destroy'])->name('productos.delete');
 
+
+//RUTAS DE TABLA SUCURSALES - DANNA 
+Route::get ('/sucursales/create',[SucursalController::class, 'create'])->name('sucursales.create');
+Route::put('/sucursales/update/{id}',[SucursalController::class, 'update'])->name('sucursales.update');
+Route::get ('/listasucursales',[SucursalController::class, 'index'])->name('sucursales.index');
+Route::get ('/sucursales/{id}',[SucursalController::class, 'show'])->name('sucursales.show');
+Route::get ('/sucursales/edit/{id}',[SucursalController::class, 'edit'])->name('sucursales.edit');
+Route::post('/sucursales/store',[SucursalController::class, 'store'])->name('sucursales.store');
+Route::Delete('/sucursales/delete/{id}',[SucursalController::class, 'destroy'])->name('sucursales.delete');
+
+//RUTAS DE TABLA SUCURSALES - PAOLA
 Route::get('/clientes/create', [ClienteController::class, 'create'])->name('clientes.create');
 Route::put('/clientes/update/{id}', [ClienteController::class, 'update'])->name('clientes.update');
 Route::get('/listaclientes', [ClienteController::class, 'index'])->name('clientes.index');

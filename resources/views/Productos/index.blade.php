@@ -9,41 +9,47 @@
     <h1>Pagina de Productos</h1>
       <a href="{{route('productos.create') }}">Nuevo</a>
      
-    <table>
+    <table border="1">
         <tr>
-            <th>Id</th>
+            <th>ID</th>
+            <th>ID Proveedor</th>
+            <th>Categoría</th>
+            <th>Código de Barras</th>
             <th>Nombre</th>
-            <th>Descripcion</th>
-            <th>Precio</th>
-            <th>Stock </th>
+            <th>Descripción</th>
             <th>Marca</th>
-            <th>Codigo De Barra</th>
-            <th>Id De Categoria</th>
-            <th>Id De Proverdor</th>
-            <th>Fecha De Regristo</th>
-            <th>Estado</th>
-            <th> Actividad </th>
+            <th>Unidad de Medida</th>
+            <th>Costo</th>
+            <th>Precio</th>
+            <th>Stock</th>
+            <th>Stock Mínimo</th>
+            <th>Fecha de Caducidad</th>
+            <th>Activo</th>
+            <th>Actividades</th>
 
         </tr>
         @foreach($productos as $producto)
         <tr>
-            <td>{{$producto->id_producto }}</td>
-            <td>{{$producto->nombre }}</td>
-            <td>{{$producto->descripcion }}</td>
+            <td>{{$producto->id}}</td>
+            <td>{{$producto->proveedor_id}}</td>
+            <td>{{$producto->categoria}}</td>
+            <td>{{$producto->codigo_barras}}</td>
+            <td>{{$producto->nombre}}</td>
+            <td>{{$producto->descripcion}}</td>
+            <td>{{$producto->marca}}</td>
+            <td>{{$producto->unidad_medida}}</td>
+            <td>{{$producto->costo}}</td>
             <td>{{$producto->precio}}</td>
-            <td>{{$producto->stock }}</td>
-            <td>{{$producto->marca }}</td>
-            <td>{{$producto->codigo_barras }}</td>
-            <td>{{$producto->id_categoria }}</td>
-            <td>{{$producto->id_proveedor }}</td>
-            <td>{{$producto->fecha_registro }}</td>
-            <td>{{$producto->estado }}</td>
-    
-            <td> <a href="{{route('productos.show', $producto->id_producto)}}">Mostrar</a>
-             <td> <a href="{{route('productos.edit', $producto->id_producto)}}">Editar</a>
+            <td>{{$producto->stock}}</td>
+            <td>{{$producto->stock_minimo}}</td>
+            <td>{{$producto->fecha_caducidad}}</td>
+            <td>{{$producto->activo}}</td>
+            
+            <td> <a href="{{route('productos.show', $producto->id)}}">Mostrar</a>
+             <td> <a href="{{route('productos.edit', $producto->id)}}">Editar</a>
 
 
-              <form  method="POST" action="{{ route('productos.delete', $producto->id_producto)  }}" >
+              <form  method="POST" action="{{ route('productos.delete', $producto->id)  }}" >
                 @csrf
                 @method('DELETE')
                 <Button type="submit"> Borrar </Button>

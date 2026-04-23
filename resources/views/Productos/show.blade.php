@@ -8,55 +8,61 @@
 <body>
     <h1> Datos de cada Prodcuto </h1>
 
-    <p>
-        ID_PRODUCTO : {{$producto-> id_producto}}
-    </p>
+        <p>
+            ID : {{$producto->id}}
+        </p>
 
-    <p>
-        NOMBRE : {{$producto-> nombre}}
-    </p>
+        <p>
+            ID PROVEEDOR : {{$producto->proveedor_id}}
+        </p>
 
-     <p>
-        DESCRIPCION : {{$producto-> descripcion}}
-    </p>
+        <p>
+            CATEGORIA : {{$producto->categoria}}
+        </p>
 
-    <p>
-        PRECIO : {{$producto-> precio}}
-    </p>
-      
-    <p>
-        STOCK : {{$producto-> stock}}
-    </p>
-      
-     <p>
-        MARCA : {{$producto-> marca}}
-    </p>
+        <p>
+            CODIGO DE BARRAS : {{$producto->codigo_barras}}
+        </p>
 
-     <p>
-        CODIGO DE BARRAS : {{$producto-> codigo_barras}}
-    </p>
+        <p>
+            NOMBRE : {{$producto->nombre}}
+        </p>
 
-     <p>
-        ID DE CATEGORIA  : {{$producto-> id_categoria}}
-    </p>
+        <p>
+            DESCRIPCION : {{$producto->descripcion}}
+        </p>
 
+        <p>
+            MARCA : {{$producto->marca}}
+        </p>
 
+        <p>
+            UNIDAD DE MEDIDA : {{$producto->unidad_medida}}
+        </p>
 
-    <p>
-        ID DEL PROVEDOR  : {{$producto-> id_proveedor}}
-    </p>
+        <p>
+            COSTO : {{$producto->costo}}
+        </p>
 
-    <p>
-        FECHA DE REGISTRO : {{$producto-> fecha_registro}}
-    </p>
+        <p>
+            PRECIO : {{$producto->precio}}
+        </p>
 
-    <p>
-        ESTADO : {{$producto-> estado}}
-    </p>
-      
-      
-      
-            
+        <p>
+            STOCK : {{$producto->stock}}
+        </p>
+
+        <p>
+            STOCK MINIMO : {{$producto->stock_minimo}}
+        </p>
+
+        <p>
+            FECHA DE CADUCIDAD : {{$producto->fecha_caducidad}}
+        </p>
+
+        <p>
+            ACTIVO : {{$producto->activo}}
+        </p>
                 
 
    

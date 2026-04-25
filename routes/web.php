@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\SucursalController;
+use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\VentaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +50,22 @@ Route::get('/clientes/{id}', [ClienteController::class, 'show'])->name('clientes
 Route::get('/clientes/edit/{id}', [ClienteController::class, 'edit'])->name('clientes.edit');
 Route::post('/clientes/store', [ClienteController::class, 'store'])->name('clientes.store');
 Route::delete('/clientes/delete/{id}', [ClienteController::class, 'destroy'])->name('clientes.delete');
+
+//RUTAS DE TABLA PROVEEDORES - ITZEL :)
+Route::get('/proveedores/create',[ProveedorController::class,'create'])->name('proveedores.create');
+Route::put('/proveedores/update/{id}',[ProveedorController::class,'update'])->name('proveedores.update');
+Route::get('/proveedores', [ProveedorController::class,'index'])->name('proveedores.index');
+Route::get('/proveedores/{id}', [ProveedorController::class,'show'])->name('proveedores.show');
+Route::get('/proveedores/edit/{id}',[ProveedorController::class,'edit'])->name('proveedores.edit');
+Route::post('/proveedores/store', [ProveedorController::class, 'store'])->name('proveedores.store');
+Route::delete('/proveedores/delete/{id}',[ProveedorController::class, 'destroy'])->name('proveedores.delete');
+
+//RUTAS DE TABLA VENTAS - ITZEL :)
+Route::get('/ventas/create',[VentaController::class,'create'])->name('ventas.create');
+Route::put('/ventas/update/{id}',[VentaController::class,'update'])->name('ventas.update');
+Route::get('/ventas', [VentaController::class,'index'])->name('ventas.index');
+Route::get('/ventas/{id}', [VentaController::class,'show'])->name('ventas.show');
+Route::get('/ventas/edit/{id}',[VentaController::class,'edit'])->name('ventas.edit');
+Route::post('/ventas/store', [VentaController::class, 'store'])->name('ventas.store');
+Route::delete('/ventas/delete/{id}',[VentaController::class, 'destroy'])->name('ventas.delete');
+

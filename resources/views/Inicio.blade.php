@@ -24,7 +24,15 @@
 </button>
      <a href="{{route('productos.index') }}">sucursales</a>
      
-    
+    <!-- Ventas -->
+    <button onclick="window.location='{{ route('ventas.index') }}'">
+        Ventas
+    </button>
+
+    <!-- Proveedores -->
+    <button onclick="window.location='{{ route('proveedores.index') }}'">
+        Proveedores
+    </button>
 
 </body>
 </html>

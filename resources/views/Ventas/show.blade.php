@@ -32,7 +32,7 @@
     </p>
 
     <p>
-        Fecha  de Venta: {{ $venta->fecha_venta }}
+        Fecha y hora de Venta: {{ $venta->fecha_venta }}
     </p>
 
     <p>

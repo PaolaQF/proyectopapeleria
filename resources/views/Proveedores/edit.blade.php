@@ -20,12 +20,17 @@
                 <input type="text" id="contacto_nombre" value="{{ $proveedor->contacto_nombre }}"  name="contacto_nombre" >
             </div>
             <div>
-                <label for="telefono">Telefono:</label>
-                <input type="text" id="telefono" value="{{ $proveedor->telefono }}"  name="telefono" >
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono"
+                    value="{{ $proveedor->telefono }}"
+                    pattern="[0-9]{10}"
+                    maxlength="10"
+                    placeholder="Ej: 8441234567"
+                    required>
             </div>
             <div>
                 <label for="email">Email:</label>
-                <input type="text"  id="email" value="{{ $proveedor->email }}" name="email" >
+                <input type="email"  id="email" value="{{ $proveedor->email }}" name="email" >
             </div>
             <div>
                 <label for="calle">Calle:</label>
@@ -33,7 +38,7 @@
             </div>
             <div>
                 <label for="numero">Numero:</label>
-                <input type="text"  id="numero" value="{{ $proveedor->numero }}" name="numero" >
+                <input type="number"  id="numero" value="{{ $proveedor->numero }}" name="numero" >
             </div>
             <div>
                 <label for="colonia">Colonia:</label>
@@ -45,15 +50,31 @@
             </div>
             <div>
                 <label for="rfc">RFC:</label>
-                <input type="text"  id="rfc" value="{{ $proveedor->rfc }}" name="rfc" >
+                <input type="text" id="rfc" name="rfc"
+                    value="{{ $proveedor->rfc }}"
+                    maxlength="13"
+                    pattern="[A-ZÑ&]{3,4}[0-9]{6}[A-Z0-9]{3}"
+                    placeholder="Ej: ABC123456T78"
+                    style="text-transform: uppercase;"
+                    required>
             </div>
             <div>
                 <label for="dias_credito">Dias de Credito:</label>
-                <input type="text"  id="dias_credito" value="{{ $proveedor->dias_credito }}" name="dias_credito" >
+                <input type="number"  id="dias_credito" value="{{ $proveedor->dias_credito }}" name="dias_credito" >
             </div>
             <div>
                 <label for="estatus">Estatus:</label>
-                <input type="text"  id="estatus" value="{{ $proveedor->estatus }}" name="estatus" >
+                <select id="estatus" name="estatus" required>
+                    <option value="">Seleccione una opción</option>
+
+                    <option value="activo" {{ $proveedor->estatus == 'activo' ? 'selected' : '' }}>
+                        Activo
+                    </option>
+
+                    <option value="suspendido" {{ $proveedor->estatus == 'suspendido' ? 'selected' : '' }}>
+                        Suspendido
+                    </option>
+                </select>
             </div>
             <div>
                 <button type="submit">Guardar</button>

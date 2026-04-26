@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\SucursalController;
+use App\Http\Controllers\DetVentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,12 @@ Route::get('/clientes/{id}', [ClienteController::class, 'show'])->name('clientes
 Route::get('/clientes/edit/{id}', [ClienteController::class, 'edit'])->name('clientes.edit');
 Route::post('/clientes/store', [ClienteController::class, 'store'])->name('clientes.store');
 Route::delete('/clientes/delete/{id}', [ClienteController::class, 'destroy'])->name('clientes.delete');
+
+Route::get('/detalle_venta/create', [DetVentController::class, 'create'])->name('detalle_venta.create');
+Route::put('/detalle_venta/update/{id}', [DetVentController::class, 'update'])->name('detalle_venta.update');
+Route::get('/detalle_venta', [DetVentController::class, 'index'])->name('detalle_venta.index');
+Route::get('/detalle_venta/{id}', [DetVentController::class, 'show'])->name('detalle_venta.show');
+Route::get('/detalle_venta/edit/{id}', [DetVentController::class, 'edit'])->name('detalle_venta.edit');
+Route::post('/detalle_venta/store', [DetVentController::class, 'store'])->name('detalle_venta.store');
+Route::delete('/detalle_venta/delete/{id}', [DetVentController::class, 'destroy'])->name('detalle_venta.delete');
+

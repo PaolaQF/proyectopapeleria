@@ -1,0 +1,19 @@
+{
+	"folders": [
+		{
+			"path": "../../../../../../laragon/www/fsinicio"
+		},
+		{
+			"path": "../../../../OneDrive/Desktop/GPS/exploratrc"
+		},
+		{
+			"path": "../../../../OneDrive/Desktop/Mi CV"
+		},
+		{
+			"path": "../../.."
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Mi CV"
+	}
+}

@@ -4,7 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\SucursalController;
+<<<<<<< HEAD
 use App\Http\Controllers\DetVentController;
+=======
+use App\Http\Controllers\ProveedorController;
+use App\Http\Controllers\VentaController;
+
+>>>>>>> 256f6929ee6d15bad4ef283d1a6798f9e8311a3b
 
 /*
 |--------------------------------------------------------------------------
@@ -49,6 +55,7 @@ Route::get('/clientes/edit/{id}', [ClienteController::class, 'edit'])->name('cli
 Route::post('/clientes/store', [ClienteController::class, 'store'])->name('clientes.store');
 Route::delete('/clientes/delete/{id}', [ClienteController::class, 'destroy'])->name('clientes.delete');
 
+<<<<<<< HEAD
 Route::get('/detalle_venta/create', [DetVentController::class, 'create'])->name('detalle_venta.create');
 Route::put('/detalle_venta/update/{id}', [DetVentController::class, 'update'])->name('detalle_venta.update');
 Route::get('/detalle_venta', [DetVentController::class, 'index'])->name('detalle_venta.index');
@@ -56,4 +63,23 @@ Route::get('/detalle_venta/{id}', [DetVentController::class, 'show'])->name('det
 Route::get('/detalle_venta/edit/{id}', [DetVentController::class, 'edit'])->name('detalle_venta.edit');
 Route::post('/detalle_venta/store', [DetVentController::class, 'store'])->name('detalle_venta.store');
 Route::delete('/detalle_venta/delete/{id}', [DetVentController::class, 'destroy'])->name('detalle_venta.delete');
+=======
+//RUTAS DE TABLA PROVEEDORES - ITZEL :)
+Route::get('/proveedores/create',[ProveedorController::class,'create'])->name('proveedores.create');
+Route::put('/proveedores/update/{id}',[ProveedorController::class,'update'])->name('proveedores.update');
+Route::get('/proveedores', [ProveedorController::class,'index'])->name('proveedores.index');
+Route::get('/proveedores/{id}', [ProveedorController::class,'show'])->name('proveedores.show');
+Route::get('/proveedores/edit/{id}',[ProveedorController::class,'edit'])->name('proveedores.edit');
+Route::post('/proveedores/store', [ProveedorController::class, 'store'])->name('proveedores.store');
+Route::delete('/proveedores/delete/{id}',[ProveedorController::class, 'destroy'])->name('proveedores.delete');
+
+//RUTAS DE TABLA VENTAS - ITZEL :)
+Route::get('/ventas/create',[VentaController::class,'create'])->name('ventas.create');
+Route::put('/ventas/update/{id}',[VentaController::class,'update'])->name('ventas.update');
+Route::get('/ventas', [VentaController::class,'index'])->name('ventas.index');
+Route::get('/ventas/{id}', [VentaController::class,'show'])->name('ventas.show');
+Route::get('/ventas/edit/{id}',[VentaController::class,'edit'])->name('ventas.edit');
+Route::post('/ventas/store', [VentaController::class, 'store'])->name('ventas.store');
+Route::delete('/ventas/delete/{id}',[VentaController::class, 'destroy'])->name('ventas.delete');
+>>>>>>> 256f6929ee6d15bad4ef283d1a6798f9e8311a3b
 

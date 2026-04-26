@@ -60,3 +60,30 @@ Route::get('/empleados/{id}', [EmpleadoController::class, 'show'])->name('emplea
 Route::get('/empleados/edit/{id}', [EmpleadoController::class, 'edit'])->name('empleados.edit');
 Route::put('/empleados/update/{id}', [EmpleadoController::class, 'update'])->name('empleados.update');
 Route::delete('/empleados/delete/{id}', [EmpleadoController::class, 'destroy'])->name('empleados.delete');
+
+//RUTAS DE TABLA DETALLE VENTA
+Route::get('/detalle_venta/create', [DetVentController::class, 'create'])->name('detalle_venta.create');
+Route::put('/detalle_venta/update/{id}', [DetVentController::class, 'update'])->name('detalle_venta.update');
+Route::get('/detalle_venta', [DetVentController::class, 'index'])->name('detalle_venta.index');
+Route::get('/detalle_venta/{id}', [DetVentController::class, 'show'])->name('detalle_venta.show');
+Route::get('/detalle_venta/edit/{id}', [DetVentController::class, 'edit'])->name('detalle_venta.edit');
+Route::post('/detalle_venta/store', [DetVentController::class, 'store'])->name('detalle_venta.store');
+Route::delete('/detalle_venta/delete/{id}', [DetVentController::class, 'destroy'])->name('detalle_venta.delete');
+
+//RUTAS DE TABLA PROVEEDORES
+Route::get('/proveedores/create', [ProveedorController::class, 'create'])->name('proveedores.create');
+Route::put('/proveedores/update/{id}', [ProveedorController::class, 'update'])->name('proveedores.update');
+Route::get('/proveedores', [ProveedorController::class, 'index'])->name('proveedores.index');
+Route::get('/proveedores/{id}', [ProveedorController::class, 'show'])->name('proveedores.show');
+Route::get('/proveedores/edit/{id}', [ProveedorController::class, 'edit'])->name('proveedores.edit');
+Route::post('/proveedores/store', [ProveedorController::class, 'store'])->name('proveedores.store');
+Route::delete('/proveedores/delete/{id}', [ProveedorController::class, 'destroy'])->name('proveedores.delete');
+
+//RUTAS DE TABLA VENTAS
+Route::get('/ventas/create', [VentaController::class, 'create'])->name('ventas.create');
+Route::put('/ventas/update/{id}', [VentaController::class, 'update'])->name('ventas.update');
+Route::get('/ventas', [VentaController::class, 'index'])->name('ventas.index');
+Route::get('/ventas/{id}', [VentaController::class, 'show'])->name('ventas.show');
+Route::get('/ventas/edit/{id}', [VentaController::class, 'edit'])->name('ventas.edit');
+Route::post('/ventas/store', [VentaController::class, 'store'])->name('ventas.store');
+Route::delete('/ventas/delete/{id}', [VentaController::class, 'destroy'])->name('ventas.delete');

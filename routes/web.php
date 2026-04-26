@@ -3,7 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductoController;
 use App\Http\Controllers\SucursalController;
-
+use App\Http\Controllers\EmpleadoController;
+use App\Http\Controllers\ClienteController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -46,3 +47,12 @@ Route::get('/clientes/{id}', [ClienteController::class, 'show'])->name('clientes
 Route::get('/clientes/edit/{id}', [ClienteController::class, 'edit'])->name('clientes.edit');
 Route::post('/clientes/store', [ClienteController::class, 'store'])->name('clientes.store');
 Route::delete('/clientes/delete/{id}', [ClienteController::class, 'destroy'])->name('clientes.delete');
+
+//TABLA EMPLEADOS - MIA 
+Route::get('/empleados/create', [EmpleadoController::class, 'create'])->name('empleados.create');
+Route::post('/empleados/store', [EmpleadoController::class, 'store'])->name('empleados.store');
+Route::get('/listaempleados', [EmpleadoController::class, 'index'])->name('empleados.index');
+Route::get('/empleados/{id}', [EmpleadoController::class, 'show'])->name('empleados.show');
+Route::get('/empleados/edit/{id}', [EmpleadoController::class, 'edit'])->name('empleados.edit');
+Route::put('/empleados/update/{id}', [EmpleadoController::class, 'update'])->name('empleados.update');
+Route::delete('/empleados/delete/{id}', [EmpleadoController::class, 'destroy'])->name('empleados.delete');

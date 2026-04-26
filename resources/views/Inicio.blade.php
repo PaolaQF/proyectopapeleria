@@ -23,6 +23,13 @@
     Sucursales
 </button>
      <a href="{{route('productos.index') }}">sucursales</a>
+
+      
+     
+     <a href="{{ route('empleados.index') }}">
+      <button>Empleados</button></a>
+
+    <a href="{{ route('empleados.index') }}">empleados</a>
      
     
 

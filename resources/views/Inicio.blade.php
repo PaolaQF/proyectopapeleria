@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Papeleria</h1>
-     //Boton de clientes
+    <!--Boton de clientes-->
     <button onclick="window.location='{{ route('clientes.index') }}'">
     Clientes
 </button>

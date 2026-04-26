@@ -29,7 +29,7 @@
 
         <div>
             <label>Teléfono:</label>
-            <input type="text" name="telefono">
+            <input type="number" name="telefono">
         </div>
 
         <div>
@@ -44,7 +44,7 @@
 
         <div>
             <label>Número:</label>
-            <input type="text" name="numero">
+            <input type="number" name="numero">
         </div>
 
         <div>

@@ -10,8 +10,6 @@
         <h1>CREAR UN NUEVO PRODUCTO</h1>
         <form id="formulario" method= "POST" action="{{route ('productos.store')}}" >
              @csrf
-
-
           
 
             <div>
@@ -82,18 +80,6 @@
                     <option value="0" {{old('activo', 1) == 0 ? 'selected' : ''}}>No</option>
                 </select>
             </div>
-
-            
-
-
-
-
-
-
-
-
-
-
 
             <div>
                 <button type="submit">Guardar</button>

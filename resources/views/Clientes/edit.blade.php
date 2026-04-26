@@ -30,7 +30,7 @@
 
         <div>
             <label>Teléfono:</label>
-            <input type="text" name="telefono" value="{{ $cliente->telefono }}">
+            <input type="number" name="telefono" value="{{ $cliente->telefono }}">
         </div>
 
         <div>
@@ -45,7 +45,7 @@
 
         <div>
             <label>Número:</label>
-            <input type="text" name="numero" value="{{ $cliente->numero }}">
+            <input type="number" name="numero" value="{{ $cliente->numero }}">
         </div>
 
         <div>

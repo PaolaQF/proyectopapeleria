@@ -104,10 +104,11 @@
         /* Colores */
         .clientes { background-color: #F5A2BE; }
         .productos { background-color: #FFD3DD; }
-        .sucursales { background-color: #F0F9F8; }
+        .sucursales { background-color: #81BFB7; }
         .empleados { background-color: #C6E6E3; }
         .ventas { background-color: #81BFB7; }
         .proveedores { background-color: #BFE3E0; }
+        .detalle-venta { background-color: #f9f9a9; }
     </style>
 </head>
 
@@ -135,6 +136,7 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('sucursales.index') }}">Sucursales</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('empleados.index') }}">Empleados</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('proveedores.index') }}">Proveedores</a></li>
+                <li class="nav-item"><a class="nav-link" href="{{ route('detalle_venta.index') }}">Detalle Venta</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('ventas.index') }}">Ventas</a></li>
             </ul>
         </div>

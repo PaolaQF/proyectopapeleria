@@ -72,6 +72,16 @@
         </div>
 
         <div class="col-md-4">
+           <a href="{{ route('detalle_venta.index') }}" class="text-decoration-none">
+              <div class="module-card detalle-venta">
+                    <h4>Detalle Venta</h4>
+
+<p>Productos vendidos por venta</p>
+                </div>
+    </a>
+</div>
+
+        <div class="col-md-4">
             <a href="{{ route('sucursales.index') }}" class="text-decoration-none">
                 <div class="module-card sucursales">
                     <h4>Sucursales</h4>

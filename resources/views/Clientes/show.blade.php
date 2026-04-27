@@ -8,13 +8,7 @@
         <div class="main-card p-0 overflow-hidden">
 
             <!-- Encabezado rosita-->
-            <div class="form-header"
-                 style="background-color:#FFF8FB;
-                        color:#111;
-                        padding:25px;
-                        text-align:center;
-                        border-bottom:2px solid #F5A2BE;">
-
+                <div class="form-header">
                 <h2 style="font-weight:800; margin:0;">
                     Datos del Cliente
                 </h2>

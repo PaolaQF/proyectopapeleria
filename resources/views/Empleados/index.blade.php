@@ -72,7 +72,7 @@
             @method('DELETE')
 
             <button type="submit" class="btn btn-sm btn-danger">
-                Borrar
+                Status
             </button>
         </form>
 

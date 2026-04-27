@@ -74,10 +74,12 @@ class EmpleadoController extends Controller
     }
 
     function destroy($id)
-    {
-        $empleado = Empleado::find($id);
-        $empleado->delete();
+{
+    $empleado = Empleado::find($id);
 
-        return redirect()->route('empleados.index');
-    }
+    $empleado->estatus = 'Baja';
+    $empleado->save();
+
+    return redirect()->route('empleados.index');
+}
 }

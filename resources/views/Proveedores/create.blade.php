@@ -1,77 +1,121 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Nuevo Proveedor</title>
-</head>
-<body>
-    <div class="container">
-        <h1>CREAR UN NUEVO PROVEEDOR</h1>
-        <form id="formulario" method="post" action="{{ route('proveedores.store') }}" >
-            @csrf     
-            <div>
-                <label for="nombre_comercial">Nombre de Comercial:</label>
-                <input type="text"  id="nombre_comercial" name="nombre_comercial" >
-            </div>
-            <div>
-                <label for="contacto_nombre">Nombre del Contacto:</label>
-                <input type="text" id="contacto_nombre"   name="contacto_nombre" >
-            </div>
-            <div>
-                <label for="telefono">Teléfono:</label>
-                <input type="tel" id="telefono" name="telefono" 
-                    pattern="[0-9]{10}" 
-                    maxlength="10"
-                    placeholder="Ej: 8441234567"
-                    required>
-            </div>
-            <div>
-                <label for="email">Email:</label>
-                <input type="email"  id="email" name="email" >
-            </div>
-            <div>
-                <label for="calle">Calle:</label>
-                <input type="text"  id="calle" name="calle" >
-            </div>
-            <div>
-                <label for="numero">Numero:</label>
-                <input type="numero"  id="numero" name="numero" >
-            </div>
-            <div>
-                <label for="colonia">Colonia:</label>
-                <input type="text"  id="colonia" name="colonia" >
-            </div>
-            <div>
-                <label for="ciudad">Ciudad:</label>
-                <input type="text"  id="ciudad" name="ciudad" >
-            </div>
-            <div>
-                <label for="rfc">RFC:</label>
-                <input type="text" id="rfc" name="rfc"
-                    maxlength="13"
-                    pattern="[A-ZÑ&]{3,4}[0-9]{6}[A-Z0-9]{3}"
-                    placeholder="Ej: ABC123456T78"
-                    style="text-transform: uppercase;"
-                    required>
-            </div>
-            <div>
-                <label for="dias_credito">Dias de Credito:</label>
-                <input type="number"  id="dias_credito" name="dias_credito" >
-            </div>
-            <div>
-                <label for="estatus">Estatus:</label>
-                <select id="estatus" name="estatus" required>
-                    <option value="">Seleccione una opción</option>
+@extends('layouts.app')
 
-                    <option value="activo">Activo</option>
-                    <option value="suspendido">Suspendido</option>
-                </select>
+@section('content')
+
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+
+        <div class="main-card p-0 overflow-hidden">
+
+            <!-- Encabezado rosa -->
+            <div class="form-header">
+                <h2>Crear Nuevo Proveedor</h2>
+                <p>Completa la información del Proveedor</p>
             </div>
-            <div>
-                <button type="submit">Guardar</button>
+
+            <!-- Formulario -->
+            <div class="p-4 bg-white">
+                <form method="POST" action="{{ route('proveedores.store') }}">
+                    @csrf
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+                            <label for="nombre_comercial" class="form-label fw-semibold">Nombre de Comercial:</label>
+                            <input type="text" class="form-control rounded-3" id="nombre_comercial" name="nombre_comercial" value="{{ old('nombre_comercial') }}" required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="contacto_nombre" class="form-label fw-semibold">Nombre del Contacto:</label>
+                            <input type="text" class="form-control rounded-3" id="contacto_nombre"   name="contacto_nombre" value="{{ old('contacto_nombre') }}" required >
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="telefono" class="form-label fw-semibold">Teléfono:</label>
+                            <input type="tel" class="form-control rounded-3"  id="telefono" name="telefono" value="{{ old('telefono') }}" 
+                                pattern="[0-9]{10}" 
+                                maxlength="10"
+                                placeholder="Ej: 8441234567"
+                                required>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="email" class="form-label fw-semibold">Email:</label>
+                            <input type="email" class="form-control rounded-3"  id="email" name="email" value="{{ old('email') }}" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="calle" class="form-label fw-semibold">Calle:</label>
+                            <input type="text" class="form-control rounded-3" id="calle" name="calle" value="{{ old('calle') }}" required>
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="numero" class="form-label fw-semibold">Número#:</label>
+                            <input type="numero" class="form-control rounded-3" id="numero" name="numero" value="{{ old('numero') }}" required>
+                        </div>
+
+                        <div class="col-md-4" >
+                            <label for="colonia" class="form-label fw-semibold">Colonia:</label>
+                            <input type="text" class="form-control rounded-3" id="colonia" name="colonia" value="{{ old('colonia') }}" required>
+                        </div>
+
+                        <div class="col-md-6" >
+                            <label for="ciudad" class="form-label fw-semibold">Ciudad:</label>
+                            <input type="text" class="form-control rounded-3"  id="ciudad" name="ciudad" value="{{ old('ciudad') }}" required>
+                        </div>
+
+                        <div class="col-md-6" >
+                            <label for="rfc" class="form-label fw-semibold">RFC:</label>
+                            <input type="text"class="form-control rounded-3" id="rfc" name="rfc" value="{{ old('rfc') }}"
+                                maxlength="13"
+                                pattern="[A-ZÑ&]{3,4}[0-9]{6}[A-Z0-9]{3}"
+                                placeholder="Ej: ABC123456T78"
+                                style="text-transform: uppercase;"
+                                required>
+                        </div>
+
+                        <div class="col-md-6" >
+                            <label for="dias_credito" class="form-label fw-semibold">Días de Credito:</label>
+                            <input type="number" class="form-control rounded-3" id="dias_credito" name="dias_credito" value="{{ old('dias_credito') }}" required >
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="estatus" class="form-label fw-semibold">Estatus:</label>
+                            <select class="form-control rounded-3" id="estatus" name="estatus" required>
+
+                                <option value="" disabled {{ old('estatus') ? '' : 'selected' }}>
+                                    Seleccione una opción
+                                </option>
+
+                                <option value="Activo" {{ old('estatus') == 'Activo' ? 'selected' : '' }}>
+                                    Activo
+                                </option>
+
+                                <option value="Suspendido" {{ old('estatus') == 'Suspendido' ? 'selected' : '' }}>
+                                    Suspendido
+                                </option>
+
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="d-flex justify-content-center gap-3 mt-5">
+                        <button type="submit" class="btn btn-success px-4 py-2 rounded-3 shadow-sm">
+                            Guardar
+                        </button>
+
+                        <a href="{{ route('proveedores.index') }}" class="btn btn-outline-dark px-4 py-2 rounded-3 shadow-sm">
+                            Volver
+                        </a>
+                    </div>
+
+                </form>
             </div>
-        </form>
+
+        </div>
     </div>
-</body>
-</html>
+</div>
+
+@endsection

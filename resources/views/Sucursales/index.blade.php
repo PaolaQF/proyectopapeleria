@@ -1,16 +1,23 @@
-<!DOCTYPE html> 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sucursales</title>
-</head>
-<body>
-    <h1>Pagina de Sucursales</h1>
+@extends('layouts.app')
+@section('content')
 
-    <a href="{{ route('sucursales.create') }}">Nuevo</a>
+<div class="main-card">
+
+    <!-- titulo -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="seccion-titulo m-0">Sucursales</h2>
+
+        <!-- boton nuevo -->
+        <a href="{{ route('sucursales.create') }}" class="btn btn-dark">
+            + Nuevo </a>
+    </div>
      
-    <table border="1">
+    <!-- TABLA -->
+    <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle text-center">
+
+            <!-- ENCABEZADO -->
+            <thead style="background-color:#F5A2BE; color:#222;">
         <tr>
             <th>ID</th>
             <th>Nombre</th>
@@ -26,6 +33,9 @@
             <th>Activa</th>
             <th>Actividades</th>
         </tr>
+        </thead>
+
+        <tbody>
 
         @foreach($sucursales as $sucursal)
         <tr>
@@ -42,18 +52,37 @@
             <td>{{ $sucursal->fecha_apertura }}</td>
             <td>{{ $sucursal->activa }}</td>
 
-            <td>
-                <a href="{{ route('sucursales.show', $sucursal->id) }}">Mostrar</a>
-                <a href="{{ route('sucursales.edit', $sucursal->id) }}">Editar</a>
+         <!-- ACCIONES -->
+                   <td>
+    <div class="d-flex justify-content-center gap-2">
+        
+        <a href="{{ route('sucursales.show', $sucursal->id) }}" class="btn btn-sm btn-info">
+            Ver
+        </a>
 
-                <form method="POST" action="{{ route('sucursales.delete', $sucursal->id) }}">
-                    @csrf
-                    @method('DELETE')
-                    <button type="submit">Borrar</button>
-                </form>
-            </td>
-        </tr>
-        @endforeach
-    </table>
-</body>
-</html>
+        <a href="{{ route('sucursales.edit', $sucursal->id) }}" class="btn btn-sm btn-warning">
+            Editar
+        </a>
+
+        <form method="POST" action="{{ route('sucursales.delete', $sucursal->id) }}">
+            @csrf
+            @method('DELETE')
+
+            <button type="submit" class="btn btn-sm btn-danger">
+                Borrar
+            </button>
+        </form>
+
+    </div>
+</td>
+
+                </tr>
+                @endforeach
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+@endsection

@@ -1,62 +1,122 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle Sucursal</title>
-</head>
-<body>
-    <h1>Datos de la Sucursal</h1>
+@extends('layouts.app')
 
-        <p>
-            ID: {{$sucursal->id}}
-        </p>
+@section('content')
 
-        <p>
-            Nombre: {{$sucursal->nombre}}
-        </p>
+<div class="row justify-content-center">
+    <div class="col-lg-10">
 
-        <p>
-            Teléfono: {{$sucursal->telefono}}
-        </p>
+        <div class="main-card p-0 overflow-hidden">
 
-        <p>
-            Email: {{$sucursal->email}}
-        </p>
+            <!-- Encabezado rosa -->
+            <div class="form-header">
+                <h2>Datos de la Sucursal</h2>
+                <p>Consulta la información detallada de la sucursal</p>
+            </div>
 
-        <p>
-            Calle: {{$sucursal->calle}}
-        </p>
+            <!-- Contenido -->
+            <div class="p-4 bg-white">
 
-        <p>
-            Número: {{$sucursal->numero}}
-        </p>
+                <div class="row g-4">
 
-        <p>
-            Colonia: {{$sucursal->colonia}}
-        </p>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">ID</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->id }}</div>
+                        </div>
+                    </div>
 
-        <p>
-            Ciudad: {{$sucursal->ciudad}}
-        </p>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Nombre</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->nombre }}</div>
+                        </div>
+                    </div>
 
-        <p>
-            Estado: {{$sucursal->estado}}
-        </p>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF2F7;">
+                            <small class="text-muted fw-semibold">Teléfono</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->telefono }}</div>
+                        </div>
+                    </div>
 
-        <p>
-            Código Postal: {{$sucursal->codigo_postal}}
-        </p>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF2F7;">
+                            <small class="text-muted fw-semibold">Email</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->email }}</div>
+                        </div>
+                    </div>
 
-        <p>
-            Fecha de Apertura: {{$sucursal->fecha_apertura}}
-        </p>
+                    <div class="col-md-4">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Calle</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->calle }}</div>
+                        </div>
+                    </div>
 
-        <p>
-            Activa: {{$sucursal->activa}}
-        </p>
+                    <div class="col-md-4">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Número</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->numero }}</div>
+                        </div>
+                    </div>
 
-    <a href="{{route('sucursales.index')}}">Volver</a>
+                    <div class="col-md-4">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Colonia</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->colonia }}</div>
+                        </div>
+                    </div>
 
-</body>
-</html>
+                    <div class="col-md-4">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF2F7;">
+                            <small class="text-muted fw-semibold">Ciudad</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->ciudad }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF2F7;">
+                            <small class="text-muted fw-semibold">Estado</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->estado }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF2F7;">
+                            <small class="text-muted fw-semibold">Código Postal</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->codigo_postal }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm h-100 border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Fecha de Apertura</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $sucursal->fecha_apertura }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm text-center border h-100" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Activa</small>
+                            <div class="fs-5 fw-bold text-dark">
+                                {{ $sucursal->activa ? 'Sí' : 'No' }}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botón -->
+                <div class="d-flex justify-content-center mt-5">
+                    <a href="{{ route('sucursales.index') }}" class="btn btn-outline-dark px-4 py-2 rounded-3 shadow-sm">
+                        Volver
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@endsection

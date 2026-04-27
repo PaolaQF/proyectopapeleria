@@ -42,6 +42,29 @@
             border-radius: 22px;
             padding: 35px;
             box-shadow: 0 12px 35px rgba(0,0,0,0.18);
+            
+
+            /* Encabezado rosa de formularios */
+            .form-header {
+                background: linear-gradient(135deg, #F5A2BE, #EC7FA9);
+                color: white;
+                padding: 28px;
+                text-align: center;
+            }
+
+            .form-header h2 {
+                color: white;
+                font-weight: 800;
+                margin: 0;
+            }
+
+            .form-header p {
+                color: rgba(255, 255, 255, 0.9);
+                margin: 8px 0 0 0;
+                font-size: 0.95rem;
+            }
+
+
         }
 
         /* Logo grande */

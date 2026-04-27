@@ -1,39 +1,125 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detalle Cliente</title>
-</head>
-<body>
+@extends('layouts.app')
 
-    <h1>DATOS DEL CLIENTE</h1>
+@section('content')
 
-    <p>ID: {{ $cliente->id }}</p>
+<div class="row justify-content-center">
+    <div class="col-lg-10">
 
-    <p>NOMBRE: {{ $cliente->nombre }}</p>
+        <div class="main-card p-0 overflow-hidden">
 
-    <p>APELLIDO PATERNO: {{ $cliente->apellido_paterno }}</p>
+            <!-- Encabezado rosita-->
+                <div class="form-header">
+                <h2 style="font-weight:800; margin:0;">
+                    Datos del Cliente
+                </h2>
 
-    <p>APELLIDO MATERNO: {{ $cliente->apellido_materno }}</p>
+                <p style="margin:5px 0 0 0; opacity:0.8;">
+                    Consulta la información detallada del cliente
+                </p>
+            </div>
 
-    <p>TELEFONO: {{ $cliente->telefono }}</p>
+            <!-- Contenido -->
+            <div class="p-4 bg-white">
 
-    <p>EMAIL: {{ $cliente->email }}</p>
+                <div class="row g-4">
 
-    <p>CALLE: {{ $cliente->calle }}</p>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">ID</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->id }}</div>
+                        </div>
+                    </div>
 
-    <p>NÚMERO: {{ $cliente->numero }}</p>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Nombre</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->nombre }}</div>
+                        </div>
+                    </div>
 
-    <p>COLONIA: {{ $cliente->colonia }}</p>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Apellido Paterno</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->apellido_paterno }}</div>
+                        </div>
+                    </div>
 
-    <p>CIUDAD: {{ $cliente->ciudad }}</p>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Apellido Materno</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->apellido_materno }}</div>
+                        </div>
+                    </div>
 
-    <p>FECHA DE REGISTRO: {{ $cliente->fecha_registro }}</p>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Teléfono</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->telefono }}</div>
+                        </div>
+                    </div>
 
-    <p>PUNTOS: {{ $cliente->puntos }}</p>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Email</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->email }}</div>
+                        </div>
+                    </div>
 
-    <a href="{{ route('clientes.index') }}">Volver</a>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Calle</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->calle }}</div>
+                        </div>
+                    </div>
 
-</body>
-</html>
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Número</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->numero }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Colonia</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->colonia }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Ciudad</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->ciudad }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Fecha de Registro</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->fecha_registro }}</div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="rounded-4 p-3 shadow-sm border" style="background-color:#FFF8FB;">
+                            <small class="text-muted fw-semibold">Puntos</small>
+                            <div class="fs-5 fw-bold text-dark">{{ $cliente->puntos }}</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botón -->
+                <div class="d-flex justify-content-center mt-5">
+                    <a href="{{ route('clientes.index') }}" class="btn btn-outline-dark px-4 py-2 rounded-3 shadow-sm">
+                        Volver
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+@endsection

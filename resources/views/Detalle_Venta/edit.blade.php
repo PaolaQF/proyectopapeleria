@@ -1,77 +1,100 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Editar Detalle de Venta</title>
-</head>
-<body>
-    <div class="container">
-        <h1>CREAR UN NUEVO DETALLE DE VENTA</h1>
-        <form id="formulario"  method= "POST" action="{{route ('detalle_venta.update', $DetVent->id)}}" >
-             @csrf
-             @method('PUT')
+@extends('layouts.app')
+
+@section('content')
+
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+
+        <div class="main-card p-0 overflow-hidden">
+
+            <!-- Encabezado rosa -->
+            <div class="form-header">
+                <h2>Editar Detalle de Venta</h2>
+                <p>Actualiza la información del detalle de venta</p>
+            </div>
+
+            <!-- Formulario -->
+            <div class="p-4 bg-white">
+                <form method="POST" action="{{ route('detalle_venta.update', $DetVent->id) }}">
+                    @csrf
+                    @method('PUT')
+
+                    <div class="row g-4">
            
-            <div>
-                <label for="venta_id">ID de Venta:</label>
-                <input type="text" id="venta_id" value="{{$DetVent->venta_id}}" name="venta_id">
+            <div class="col-md-6">
+                <label for="venta_id" class="form-label fw-semibold">ID de Venta:</label>
+                <input type="text" class="form-control rounded-3" id="venta_id" name="venta_id" 
+                        value="{{ old('venta_id', $DetVent->venta_id) }}">
             </div>
 
-            <div>
-                <label for="producto_id">ID de Producto:</label>
-                <input type="text" id="producto_id" value="{{$DetVent->producto_id}}" name="producto_id">
+            <div class="col-md-6">
+                <label for="producto_id" class="form-label fw-semibold">ID de Producto:</label>
+                <input type="text" class="form-control rounded-3" id="producto_id" name="producto_id"
+                        value="{{ old('producto_id', $DetVent->producto_id) }}">
             </div>
 
-                        <div>
-                <label for="cantidad">Cantidad:</label>
-                <input type="text" id="cantidad" value="{{$DetVent->cantidad}}" name="cantidad" >
+            <div class="col-md-6">
+                <label for="cantidad" class="form-label fw-semibold">Cantidad:</label>
+                <input type="text" class="form-control rounded-3" id="cantidad" name="cantidad" 
+                        value="{{ old('cantidad', $DetVent->cantidad) }}">
             </div>
 
-             <div>
-                <label for="precio_unitario">Precio Unitario:</label>
-                <input type="text" id="precio_unitario" value="{{$DetVent->precio_unitario}}" name="precio_unitario" >
+             <div class="col-md-6">
+                <label for="precio_unitario" class="form-label fw-semibold">Precio Unitario:</label>
+                <input type="text" class="form-control rounded-3" id="precio_unitario" name="precio_unitario"
+                        value="{{ old('precio_unitario', $DetVent->precio_unitario) }}">
             </div>
 
-            <div>
-                <label for="descuento">Descuento:</label>
-                <input type="text" id="descuento" value="{{$DetVent->descuento}}" name="descuento" >
+            <div class="col-md-6">
+                <label for="descuento" class="form-label fw-semibold">Descuento:</label>
+                <input type="text" class="form-control rounded-3" id="descuento" name="descuento"
+                        value="{{ old('descuento', $DetVent->precio_unitario) }}" >
             </div>
 
-            <div>
-                <label for="impuesto">Impuesto:</label>
-                <input type="text" id="impuesto" value="{{$DetVent->impuesto}}" name="impuesto" >
+            <div class="col-md-6">
+                <label for="impuesto" class="form-label fw-semibold">Impuesto:</label>
+                <input type="text" class="form-control rounded-3" id="impuesto" name="impuesto" 
+                        value="{{ old('impuesto', $DetVent->impuesto) }}">
             </div>
 
-             <div>
-                <label for="subtotal">Subtotal:</label>
-                <input type="text" id="subtotal" value="{{$DetVent->subtotal}}" name="subtotal" >
+             <div class="col-md-6">
+                <label for="subtotal" class="form-label fw-semibold">Subtotal:</label>
+                <input type="text" class="form-control rounded-3" id="subtotal" name="subtotal" 
+                        value="{{ old('subtotal', $DetVent->subtotal) }}">
             </div>
 
-            <div>
-                <label for="observaciones">Observaciones:</label>
-                <input type="text" id="observaciones" value="{{$DetVent->observaciones}}" name="observaciones" >
+            <div class="col-md-6">
+                <label for="observaciones" class="form-label fw-semibold">Observaciones:</label>
+                <input type="text" class="form-control rounded-3" id="observaciones" name="observaciones" 
+                        value="{{ old('observaciones', $DetVent->observaciones) }}">
             </div>
 
             
-            <div>
-                <label for="entregado">Entregado:</label>
-                <select id="entregado" name="entregado">
+            <div class="col-md-6">
+                <label for="entregado" class="form-label fw-semibold">Entregado:</label>
+                <select class="form-control rounded-3" id="entregado" name="entregado">
                     <option value="1" {{old('entregado', 1) == 1 ? 'selected' : ''}}>Sí</option>
                     <option value="0" {{old('entregado', 1) == 0 ? 'selected' : ''}}>No</option>
                 </select>
             </div>
 
+</div>
+            <!-- Botones -->
+                    <div class="d-flex justify-content-center gap-3 mt-5">
+                        <button type="submit" class="btn btn-success px-4 py-2 rounded-3 shadow-sm">
+                            Guardar Cambios
+                        </button>
 
-            
-            <div>
-                <button type="submit">GUARDAR</button>
-                <button href="{{route('detalle_venta.index')}}">Volver</button>
+                        <a href="{{ route('detalle_venta.index') }}" class="btn btn-outline-dark px-4 py-2 rounded-3 shadow-sm">
+                            Volver
+                        </a>
+                    </div>
 
-
+                </form>
             </div>
 
-            
-        </form>
+        </div>
     </div>
-</body>
-</html>
+</div>
+
+@endsection

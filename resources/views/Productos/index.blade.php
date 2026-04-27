@@ -1,16 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Pagina de Productos</h1>
-      <a href="{{route('productos.create') }}">Nuevo</a>
+@extends('layouts.app')
+@section('content')
+
+<div class="main-card">
+
+    <!-- titulo -->
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="seccion-titulo m-0">Productos </h2>
+             <!-- boton nuevo -->
+        <a href="{{ route('productos.create') }}" class="btn btn-dark">  + Nuevo </a>
+    </div>
      
-    <table border="1">
-        <tr>
+    <!-- TABLA -->
+    <div class="table-responsive">
+            <table class="table table-bordered table-hover align-middle text-center">
+
+            <!-- ENCABEZADO -->
+            <thead style="background-color:#F5A2BE; color:#222;">
+                <tr>
+
             <th>ID</th>
             <th>ID Proveedor</th>
             <th>Categoría</th>
@@ -28,8 +35,12 @@
             <th>Actividades</th>
 
         </tr>
-        @foreach($productos as $producto)
-        <tr>
+
+         </thead>
+        <!-- CUERPO -->
+     <tbody>
+     @foreach($productos as $producto)
+         <tr>
             <td>{{$producto->id}}</td>
             <td>{{$producto->proveedor_id}}</td>
             <td>{{$producto->categoria}}</td>
@@ -45,20 +56,28 @@
             <td>{{$producto->fecha_caducidad}}</td>
             <td>{{$producto->activo}}</td>
             
-            <td> <a href="{{route('productos.show', $producto->id)}}">Mostrar</a>
-             <td> <a href="{{route('productos.edit', $producto->id)}}">Editar</a>
+             <!-- ACCIONES -->
+                   <td>
+            <div class="d-flex justify-content-center gap-2">
+            <a href="{{ route('productos.show', $producto->id) }}" class="btn btn-sm btn-info"> Ver </a>
+            <a href="{{ route('productos.edit', $producto->id) }}" class="btn btn-sm btn-warning"> Editar </a>
 
+        <form method="POST" action="{{ route('productos.delete', $producto->id) }}">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-sm btn-danger">  Borrar </button>
+        </form>
 
-              <form  method="POST" action="{{ route('productos.delete', $producto->id)  }}" >
-                @csrf
-                @method('DELETE')
-                <Button type="submit"> Borrar </Button>
+    </div>
+</td>
 
-                </form>
-                
-            </td>
-        </tr>
-        @endforeach
-    </table>
-</body>
-</html>
+                </tr>
+                @endforeach
+            </tbody>
+
+        </table>
+    </div>
+
+</div>
+
+@endsection

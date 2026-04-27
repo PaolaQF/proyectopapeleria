@@ -1,92 +1,110 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crear Nuevo Producto</title>
-</head>
-<body>
-    <div class="container">
-        <h1>CREAR UN NUEVO PRODUCTO</h1>
-        <form id="formulario" method= "POST" action="{{route ('productos.store')}}" >
-             @csrf
-          
+@extends('layouts.app')
 
-            <div>
-                <label for="proveedor_id">ID de Proveedor:</label>
-                <input type="text" id="proveedor_id"   name="proveedor_id">
+@section('content')
+
+<div class="row justify-content-center">
+    <div class="col-lg-10">
+
+        <div class="main-card p-0 overflow-hidden">
+
+            <!-- Encabezado rosa -->
+            <div class="form-header ">
+                <h2>Crear Nuevo Producto</h2>
+                <p>Completa la información del producto</p>
             </div>
 
-            <div>
-                <label for="categoria">Categoria:</label>
-                <input type="text" id="categoria"  name="categoria" >
+            <!-- Formulario -->
+            <div class="p-4 bg-white" >
+                <form id="formulario" method="POST" action="{{ route('productos.store') }}">
+                    @csrf
+
+                    <div class="row g-4">
+
+                        <div class="col-md-6">
+                            <label for="proveedor_id" class="form-label fw-semibold">ID de Proveedor</label>
+                            <input type="text" class="form-control rounded-3" id="proveedor_id" name="proveedor_id" value="{{ old('proveedor_id') }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="categoria" class="form-label fw-semibold">Categoría</label>
+                            <input type="text" class="form-control rounded-3" id="categoria" name="categoria" value="{{ old('categoria') }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="codigo_barras" class="form-label fw-semibold">Código de Barras</label>
+                            <input type="text" class="form-control rounded-3" id="codigo_barras" name="codigo_barras" value="{{ old('codigo_barras') }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="nombre" class="form-label fw-semibold">Nombre</label>
+                            <input type="text" class="form-control rounded-3" id="nombre" name="nombre" value="{{ old('nombre') }}">
+                        </div>
+
+                        <div class="col-12">
+                            <label for="descripcion" class="form-label fw-semibold">Descripción</label>
+                            <input type="text" class="form-control rounded-3" id="descripcion" name="descripcion" value="{{ old('descripcion') }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="marca" class="form-label fw-semibold">Marca</label>
+                            <input type="text" class="form-control rounded-3" id="marca" name="marca" value="{{ old('marca') }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="unidad_medida" class="form-label fw-semibold">Unidad de Medida</label>
+                            <input type="text" class="form-control rounded-3" id="unidad_medida" name="unidad_medida" value="{{ old('unidad_medida') }}">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="costo" class="form-label fw-semibold">Costo</label>
+                            <input type="number" step="0.01" class="form-control rounded-3" id="costo" name="costo" value="{{ old('costo') }}">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="precio" class="form-label fw-semibold">Precio</label>
+                            <input type="number" step="0.01" class="form-control rounded-3" id="precio" name="precio" value="{{ old('precio') }}">
+                        </div>
+
+                        <div class="col-md-4">
+                            <label for="stock" class="form-label fw-semibold">Stock</label>
+                            <input type="number" class="form-control rounded-3" id="stock" name="stock" value="{{ old('stock') }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="stock_minimo" class="form-label fw-semibold">Stock Mínimo</label>
+                            <input type="text" class="form-control rounded-3" id="stock_minimo" name="stock_minimo" value="{{ old('stock_minimo') }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="fecha_caducidad" class="form-label fw-semibold">Fecha de Caducidad</label>
+                            <input type="date" class="form-control rounded-3" id="fecha_caducidad" name="fecha_caducidad" value="{{ old('fecha_caducidad') }}">
+                        </div>
+
+                        <div class="col-md-6">
+                            <label for="activo" class="form-label fw-semibold">Activo</label>
+                            <select class="form-select rounded-3" id="activo" name="activo">
+                                <option value="1" {{ old('activo', 1) == 1 ? 'selected' : '' }}>Sí</option>
+                                <option value="0" {{ old('activo', 1) == 0 ? 'selected' : '' }}>No</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <!-- Botones -->
+                    <div class="d-flex justify-content-center gap-3 mt-5">
+                        <button type="submit" class="btn btn-success px-4 py-2 rounded-3 shadow-sm">
+                            Guardar
+                        </button>
+
+                        <a href="{{ route('productos.index') }}" class="btn btn-outline-dark px-4 py-2 rounded-3 shadow-sm">
+                            Volver
+                        </a>
+                    </div>
+                </form>
             </div>
 
-             <div>
-                <label for="codigo_barras">Codigo De Barras:</label>
-                <input type="text" id="codigo_barras"  name="codigo_barras" >
-            </div>
-
-            <div>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre"  name="nombre" >
-            </div>
-
-            <div>
-                <label for="descripcion">Descripcion:</label>
-                <input type="text" id="descripcion"  name="descripcion" >
-            </div>
-
-             <div>
-                <label for="marca">Marca:</label>
-                <input type="text" id="marca"  name="marca" >
-            </div>
-
-            <div>
-                <label for="unidad_medida">Unidad De Medida:</label>
-                <input type="text" id="unidad_medida"  name="unidad_medida" >
-            </div>
-
-             <div>
-                <label for="costo">Costo:</label>
-                <input type="number" step="0.01" id="costo"  name="costo" >
-            </div>
-
-            <div>
-                <label for="precio">Precio:</label>
-                <input type="number" step="0.01" id="precio"  name="precio" >
-            </div>
-
-            <div>
-                <label for="stock">Stock:</label>
-                <input type="number" id="stock" name="stock" >
-            </div>
-
-             <div>
-                <label for="stock_minimo">Stock Minimo:</label>
-                <input type="text" id="stock_minimo" name="stock_minimo" >
-            </div>
-           
-
-            <div>
-                <label for="fecha_caducidad">Fecha De Caducidad:</label>
-                <input type="date" id="fecha_caducidad" name="fecha_caducidad" >
-            </div>
-            
-            <div>
-                <label for="activo">Activo:</label>
-                <select id="activo" name="activo">
-                    <option value="1" {{old('activo', 1) == 1 ? 'selected' : ''}}>Sí</option>
-                    <option value="0" {{old('activo', 1) == 0 ? 'selected' : ''}}>No</option>
-                </select>
-            </div>
-
-            <div>
-                <button type="submit">Guardar</button>
-                <button href="{{route('productos.index') }}">Volver</button>
-            </div>
-            
-        </form>
+        </div>
     </div>
-</body>
-</html>
+</div>
+
+@endsection

@@ -7,12 +7,8 @@
 
         <div class="main-card p-0 overflow-hidden">
 
-            <!-- Encabezado rosa pastel -->
-            <div class="form-header"
-                 style="background: linear-gradient(135deg, #FFD3DD);
-                        color: #111;
-                        padding: 25px;
-                        text-align: center;">
+            <!-- Encabezado rosita -->
+            <div class="form-header">
 
                 <h2 style="font-weight: 800; margin:0;">
                     Editar Cliente

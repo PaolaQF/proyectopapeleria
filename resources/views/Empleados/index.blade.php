@@ -2,6 +2,8 @@
 
 @section('content')
 
+  <!-- blade + bootstrap, recorre los registros -->
+
 <div class="main-card">
 
     <!-- titulo -->
@@ -89,3 +91,4 @@
 </div>
 
 @endsection
+

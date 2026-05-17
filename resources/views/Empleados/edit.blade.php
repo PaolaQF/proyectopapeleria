@@ -4,6 +4,9 @@
 
 <div class="main-card">
 
+
+<!-- carga los datos existentes -->
+
     <!-- TÍTULO -->
     <div class="d-flex justify-content-between align-items-center mb-4">
         <h2 class="seccion-titulo m-0">Editar Empleado</h2>
@@ -16,6 +19,7 @@
     <!-- FORMULARIO -->
     <form method="POST" action="{{ route('empleados.update', $empleado->id) }}">
         @csrf
+        
         @method('PUT')
 
         <div class="row g-3">
@@ -87,10 +91,19 @@
             </div>
 
             <!-- Estatus -->
-            <div class="col-md-4">
-                <label class="form-label">Estatus</label>
-                <input type="text" name="estatus" value="{{ $empleado->estatus }}" class="form-control">
-            </div>
+<div class="col-md-4">
+    <label class="form-label">Estatus</label>
+
+    <select name="estatus" class="form-control">
+        <option value="Activo" {{ $empleado->estatus == 'Activo' ? 'selected' : '' }}>
+            Activo
+        </option>
+
+        <option value="Baja" {{ $empleado->estatus == 'Baja' ? 'selected' : '' }}>
+            Baja
+        </option>
+    </select>
+</div>
 
         </div>
 

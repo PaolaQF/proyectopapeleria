@@ -53,12 +53,12 @@ Route::post('/clientes/store', [ClienteController::class, 'store'])->name('clien
 Route::delete('/clientes/delete/{id}', [ClienteController::class, 'destroy'])->name('clientes.delete');
 
 //TABLA EMPLEADOS - MIA 
-Route::get('/empleados/create', [EmpleadoController::class, 'create'])->name('empleados.create');
-Route::post('/empleados/store', [EmpleadoController::class, 'store'])->name('empleados.store');
-Route::get('/listaempleados', [EmpleadoController::class, 'index'])->name('empleados.index');
-Route::get('/empleados/{id}', [EmpleadoController::class, 'show'])->name('empleados.show');
-Route::get('/empleados/edit/{id}', [EmpleadoController::class, 'edit'])->name('empleados.edit');
-Route::put('/empleados/update/{id}', [EmpleadoController::class, 'update'])->name('empleados.update');
+Route::get('/empleados/create', [EmpleadoController::class, 'create'])->name('empleados.create');//muestra - abre formulario
+Route::post('/empleados/store', [EmpleadoController::class, 'store'])->name('empleados.store');// crea - guarda empleado
+Route::get('/listaempleados', [EmpleadoController::class, 'index'])->name('empleados.index'); //lista empleados
+Route::get('/empleados/{id}', [EmpleadoController::class, 'show'])->name('empleados.show'); // muestra detalle
+Route::get('/empleados/edit/{id}', [EmpleadoController::class, 'edit'])->name('empleados.edit');// abre edicion
+Route::put('/empleados/update/{id}', [EmpleadoController::class, 'update'])->name('empleados.update'); //actualiza registro
 Route::delete('/empleados/delete/{id}', [EmpleadoController::class, 'destroy'])->name('empleados.delete');
 
 //RUTAS DE TABLA DETALLE VENTA - ITZEL 
@@ -87,3 +87,6 @@ Route::get('/ventas/{id}', [VentaController::class, 'show'])->name('ventas.show'
 Route::get('/ventas/edit/{id}', [VentaController::class, 'edit'])->name('ventas.edit');
 Route::post('/ventas/store', [VentaController::class, 'store'])->name('ventas.store');
 Route::delete('/ventas/delete/{id}', [VentaController::class, 'destroy'])->name('ventas.delete');
+
+
+//php artisan route:list

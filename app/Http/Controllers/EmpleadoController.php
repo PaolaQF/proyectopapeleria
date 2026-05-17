@@ -5,6 +5,13 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Empleado;
 
+//Control del "CRUD - 
+//CREATE:"Crea empleados" create(muestra formulario), store(Guarda en BD)
+//READ: "Leer Informacion" index(lista empleados), show(Muestra detalle)
+//UPDATE: "Actualizar datos" edit(Abre formulario de edicion), update(Guarda Cambios)
+//DELETE: "Eliminar"  destroy(no elimina, cambia de estatus)
+
+
 class EmpleadoController extends Controller
 {
     function index()
